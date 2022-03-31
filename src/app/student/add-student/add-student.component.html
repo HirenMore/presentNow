@@ -17,15 +17,17 @@
             </div>
           </div>
           <div class="field">
-            <label class="label">Last Name</label>
+            <label class="label">PassWord</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input" [class.is-success]="!student.get('lastName')?.errors" type="text"
-                placeholder="Last Name" formControlName="lastName" />
+              <input class="input" [class.is-success]="!student.get('password')?.errors" type="text"
+                placeholder="PassWord" formControlName="password" />
+              <span *ngIf="student.get('password')?.errors ">paswrod requires small capital and spacial
+                characters</span>
               <span class="icon is-small is-left">
-                <i class="fas fa-user"></i>
+                <i class="fas fa-key"></i>
               </span>
               <span class="icon is-small is-right">
-                <i [class.fa-check]="!student.get('lastName')?.errors" class="fas "></i>
+                <i [class.fa-check]="!student.get('password')?.errors" class="fas "></i>
               </span>
             </div>
           </div>

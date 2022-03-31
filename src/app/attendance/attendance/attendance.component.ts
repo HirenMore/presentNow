@@ -32,7 +32,7 @@ export class AttendanceComponent implements OnInit {
     this.removeStudentFromStudentList(student);
   }
   onAbsentClicked(student: Student) {
-    this.toaster.showFailure("", `${student.firstName} ${student.lastName} is absent`)
+    this.toaster.showFailure("", `${student.firstName} ${student.password} is absent`)
     this.sendStudentToPresentStudentList(student);
     this.removeStudentFromStudentList(student);
   }

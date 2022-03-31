@@ -9,7 +9,7 @@
         </tr>
         <tr *ngFor="let student of studentList">
             <td>{{student.firstName}}</td>
-            <td>{{student.lastName}}</td>
+            <td>{{student.password}}</td>
             <td>{{student.rollNumber}}</td>
             <td><button (click)="onPresentClicked(student)" class="button is-success is-pulled-right">Present</button></td>
             <td><button (click)="onAbsentClicked(student)" class="button is-danger is-pulled-left">Absent</button></td>

@@ -13,9 +13,11 @@ export class AddStudentComponent implements OnInit {
 
   }
   student = new FormGroup({
-    firstName: new FormControl('', [Validators.required, Validators.nullValidator, Validators.pattern('(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)')]),
-    lastName: new FormControl('', [Validators.required, Validators.nullValidator]),
+    firstName: new FormControl('', [Validators.required, Validators.nullValidator
+    ]),
+    password: new FormControl('', [Validators.required, Validators.nullValidator, Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$")]),
     rollNumber: new FormControl('', [Validators.required, Validators.min(1)]),
+
   });
   ngOnInit(): void {
   }
