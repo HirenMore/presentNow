@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ngx-toastr/toastr";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+$spacing-shortcuts: (
+  "margin": "mg",
+);
+$spacing-horizontal: "h";
+$spacing-vertical: null;
+$spacing-values: (
+  "small": 10px,
+  "medium": 30px,
+  "large": 60px,
+);
+// remove the up and down arrow fro the input type
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
