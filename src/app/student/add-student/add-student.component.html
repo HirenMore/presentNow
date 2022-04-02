@@ -21,8 +21,23 @@
             <div class="control has-icons-left has-icons-right">
               <input class="input" [class.is-success]="!student.get('password')?.errors" type="text"
                 placeholder="PassWord" formControlName="password" />
-              <span *ngIf="student.get('password')?.errors ">paswrod requires small capital and spacial
-                characters</span>
+              <div *ngIf="student.get('password').pristine === false && student.get('password').errors != null">
+                <span *ngIf="student.get('password').errors['isLowerCaseError']" class="tag is-danger is-light lin">
+                  please add a lowercase letter
+                </span>
+                <span *ngIf="student.get('password').errors['isUpperCaseError']" class="tag is-danger is-light">
+                  please add a uppercase letter <br>
+                </span>
+                <span *ngIf="student.get('password').errors['isDigitError']" class="tag is-danger is-light">
+                  please add a digit <br>
+                </span>
+                <span *ngIf="student.get('password').errors['isSpecialCharacterError']" class="tag is-danger is-light">
+                  please add special characters <br>
+                </span>
+                <span *ngIf="student.get('password').errors['isLenghtSort']" class="tag is-danger is-light">
+                  password length must be greater than 8 <br>
+                </span>
+              </div>
               <span class="icon is-small is-left">
                 <i class="fas fa-key"></i>
               </span>
@@ -45,16 +60,74 @@
             </div>
           </div>
           <div class="field">
+            <label class="label">Gender</label>
+            <div class="control has-icons-left has-icons-right">
+              <div class="control">
+                <label class="radio">
+                  <input type="radio" formControlName='gender' value="male">
+                  Male
+                </label>
+                <label class="radio">
+                  <input type="radio" formControlName='gender' value="female">
+                  Female
+                </label>
+                <label class="radio">
+                  <input type="radio" formControlName='gender' value="other">
+                  other
+                </label>
+              </div>
+            </div>
+            <div class="field" *ngIf="student.get('gender')?.value === 'other'">
+              <label class="label">Custom Gender</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" [class.is-success]="!student.get('customGender')?.errors" type="text"
+                  placeholder="Custom Gender" formControlName="customGender" />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+                <span class="icon is-small is-right">
+                  <i [class.fa-check]="!student.get('customGender')?.errors" class="fas "></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Location</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" [class.is-success]="!student.get('location')?.errors" type="text"
+                placeholder="Location" formControlName="location" />
+              <span class="icon is-small is-left">
+                <i class="fas fa-globe"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i [class.fa-check]="!student.get('location')?.errors" class="fas "></i>
+              </span>
+            </div>
+          </div>
+          <div class="field" *ngIf="student.get('location')?.value.toLowerCase() == 'other'">
+            <label class="label">Custom Location</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" [class.is-success]="!student.get('customLocation')?.errors" type="text"
+                placeholder="Custome location" formControlName="customLocation" />
+              <span class="icon is-small is-left">
+                <i class="fas fa-globe"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i [class.fa-check]="!student.get('customLocation')?.errors" class="fas "></i>
+              </span>
+            </div>
+          </div>
+          <div class="field">
             <button type="submit" [disabled]="!student.valid" class="button is-success">Add Student
               <span class="icon is-small">
                 <i class="fa-solid fa-user-plus"></i>
               </span>
             </button>
           </div>
-          <div class="form-group">
-          </div>
         </form>
       </div>
     </div>
   </div>
 </div>
+
+<p>Form value: {{ student.value | json }}</p> <!-- {food: 'lamb' } -->

@@ -12,6 +12,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AddStudentComponent } from './student/add-student/add-student.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './basic/navbar/navbar.component';
+import { LoginComponent } from './common/login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavbarComponent } from './basic/navbar/navbar.component';
     StudentProfileComponent,
     AttendanceComponent,
     AddStudentComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
